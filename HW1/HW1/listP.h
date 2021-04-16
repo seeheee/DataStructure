@@ -1,9 +1,17 @@
-/*#define MAX 100
+#define MAX 100
 #include <stdbool.h>
 
+
+typedef struct nodeRecord {
+	int Data;
+	struct nodeRecord* Next;
+} node;
+
+typedef node* Nptr;
+
 typedef struct {
-	int Count; // Count 값: 0, 1, 2 <-- 리스트안에 있는 의미 있는 값의 개수
-	int Data[MAX];
+	int Count;
+	Nptr Head;
 } listType;
 
 void Init(listType* Lptr);
@@ -28,4 +36,4 @@ int Retrieve(listType* Lptr, int Position);
 // Lptr이 가리키고 있는 리스트의 Position 번째 내용을 찾아 반환함
 
 void RetrieveAll(listType* Lptr);
-// Lptr이 가리키고 있는 리스트의 모든 원소들을 화면에 출력함*/
+// Lptr이 가리키고 있는 리스트의 모든 원소들을 화면에 출력함

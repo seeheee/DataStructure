@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 #include "listA.h"
 #include <stdbool.h>
@@ -144,4 +144,4 @@ int main(void) {
     {
         printf("°ÅÁþ\n");
     }
-}
+}*/

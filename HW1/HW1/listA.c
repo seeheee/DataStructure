@@ -1,4 +1,4 @@
-/*#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "listA.h"
 #include <stdbool.h>
@@ -6,7 +6,7 @@
 
 void Init(listType* Lptr) {
     Lptr->Count = 0;
-    printf("µ¥ÀÌÅÍ°¡ ÃÊ±âÈ­ µÇ¾ú½À´Ï´Ù.\n");
+    printf("ë°ì´í„°ê°€ ì´ˆê¸°í™” ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 }
 
 bool IsEmpty(listType* Lptr) {
@@ -23,11 +23,11 @@ int Length(listType* Lptr) {
 
 void Insert(listType* Lptr, int Position, int Item) {
     if (Lptr->Count == MAX) {
-        printf("¸®½ºÆ®°¡ ²Ë Â÷ µ¥ÀÌÅÍ¸¦ Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+        printf("ë¦¬ìŠ¤íŠ¸ê°€ ê½‰ ì°¨ ë°ì´í„°ë¥¼ ì¶”ê°€í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
     }
     else if((Position > (Lptr->Count + 1)) || (Position < 1))
     {
-        printf("ÀÎµ¦½ºÀÇ ¹üÀ§¸¦ ¹ş¾î³µ½À´Ï´Ù.");
+        printf("ì¸ë±ìŠ¤ì˜ ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤.");
     }
     else
     {
@@ -36,39 +36,39 @@ void Insert(listType* Lptr, int Position, int Item) {
         }
         Lptr->Data[Position] = Item;
         Lptr->Count += 1;
-        printf("%dÀ» ¸®½ºÆ® %d¹øÂ° ¿ø¼Ò·Î »ğÀÔÇÏ¿´½À´Ï´Ù.\n", Item, Position);
+        printf("%dì„ ë¦¬ìŠ¤íŠ¸ %dë²ˆì§¸ ì›ì†Œë¡œ ì‚½ì…í•˜ì˜€ìŠµë‹ˆë‹¤.\n", Item, Position);
     }
 
 }
 void Delete(listType* Lptr, int Position) {
     int i;
     if (IsEmpty(Lptr)) {
-        printf("¸®½ºÆ®°¡ ºñ¾îÀÖ¾î µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+        printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆì–´ ë°ì´í„°ë¥¼ ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
     }
     else if ((Position >= (Lptr->Count)) || (Position < 1)) {
-        printf("ÀÎµ¦½ºÀÇ ¹üÀ§¸¦ ¹ş¾î³µ½À´Ï´Ù.");
+        printf("ì¸ë±ìŠ¤ì˜ ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤.");
     }
     else {
         for (i = Position; i < (Lptr->Count); i++) {
             Lptr->Data[i] = Lptr->Data[i + 1];
         }
         Lptr->Count -= 1;
-        printf("%d¹øÂ° µ¥ÀÌÅÍ°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n", Position);
+        printf("%dë²ˆì§¸ ë°ì´í„°ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n", Position);
     }
 }
 
 void Update(listType* Lptr, int Position, int Item) {
     if (IsEmpty(Lptr)) {
-        printf("¸®½ºÆ®°¡ ºñ¾îÀÖ¾î µ¥ÀÌÅÍ¸¦ º¯°æÇÒ ¼ö ¾ø½À´Ï´Ù.");
+        printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆì–´ ë°ì´í„°ë¥¼ ë³€ê²½í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
     }
     else if((Position>(Lptr->Count)) || (Position<1))
     {
-        printf("ÀÎµ¦½ºÀÇ ¹üÀ§¸¦ ¹ş¾î³µ½À´Ï´Ù.");
+        printf("ì¸ë±ìŠ¤ì˜ ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤.");
     }
     else
     {
         Lptr->Data[Position] = Item;
-        printf("%dÀ» ¸®½ºÆ® %d¹øÂ° ¿ø¼Ò·Î º¯°æÇÏ¿´½À´Ï´Ù.\n", Item, Position);
+        printf("%dì„ ë¦¬ìŠ¤íŠ¸ %dë²ˆì§¸ ì›ì†Œë¡œ ë³€ê²½í•˜ì˜€ìŠµë‹ˆë‹¤.\n", Item, Position);
     }
     
 }
@@ -78,7 +78,7 @@ int Retrieve(listType* Lptr, int Position) {
 }
 
 void RetrieveAll(listType* Lptr) {
-    printf("¾Æ·¡¿¡ ¸®½ºÆ®ÀÇ ¸ğµç ¿ø¼Ò¸¦ Ãâ·ÂÇÕ´Ï´Ù.\n");
+    printf("ì•„ë˜ì— ë¦¬ìŠ¤íŠ¸ì˜ ëª¨ë“  ì›ì†Œë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.\n");
     for (int i = 1; i <= Lptr->Count; i++) {
         printf("%d ", Lptr->Data[i]);
     }
@@ -88,60 +88,60 @@ void RetrieveAll(listType* Lptr) {
 int main(void) {
     listType list;
 
-    // 1. ¸®½ºÆ® ÃÊ±âÈ­
+    // 1. ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
     Init(&list);
     
-    // 2. ¸®½ºÆ®¿¡ ¿ø¼Ò 10°³ ÀÔ·Â
+    // 2. ë¦¬ìŠ¤íŠ¸ì— ì›ì†Œ 10ê°œ ì…ë ¥
     for (int i = 1; i <= 10; i++) {
         Insert(&list, i, i);
     }
    
-    // 3. ¸®½ºÆ®ÀÇ 4¹øÂ° ¿ø¼Ò¸¦ Ãâ·Â
-    printf("¸®½ºÆ® 4¹øÂ° ¿ø¼Ò´Â %dÀÔ´Ï´Ù.\n", Retrieve(&list, 4));
+    // 3. ë¦¬ìŠ¤íŠ¸ì˜ 4ë²ˆì§¸ ì›ì†Œë¥¼ ì¶œë ¥
+    printf("ë¦¬ìŠ¤íŠ¸ 4ë²ˆì§¸ ì›ì†ŒëŠ” %dì…ë‹ˆë‹¤.\n", Retrieve(&list, 4));
 
-    // 4. ¸®½ºÆ®ÀÇ 4¹øÂ° ¿ø¼Ò¸¦ »èÁ¦
+    // 4. ë¦¬ìŠ¤íŠ¸ì˜ 4ë²ˆì§¸ ì›ì†Œë¥¼ ì‚­ì œ
     Delete(&list, 4);
     
-    // 5. ¸®½ºÆ®ÀÇ 4¹øÂ° ¿ø¼Ò¸¦ »èÁ¦
+    // 5. ë¦¬ìŠ¤íŠ¸ì˜ 4ë²ˆì§¸ ì›ì†Œë¥¼ ì‚­ì œ
     Delete(&list, 4);
     
-    // 6. ¸®½ºÆ® ±¸¼º ¿ø¼Ò °¹¼ö Ãâ·Â
-    printf("¸®½ºÆ®ÀÇ ¿ø¼ÒÀÇ °³¼ö´Â %dÀÔ´Ï´Ù.\n", Length(&list));
+    // 6. ë¦¬ìŠ¤íŠ¸ êµ¬ì„± ì›ì†Œ ê°¯ìˆ˜ ì¶œë ¥
+    printf("ë¦¬ìŠ¤íŠ¸ì˜ ì›ì†Œì˜ ê°œìˆ˜ëŠ” %dì…ë‹ˆë‹¤.\n", Length(&list));
 
-    // 7. ¸®½ºÆ®°¡ ºñ¾î ÀÖ´ÂÁö ¿©ºÎ¸¦ Ãâ·Â
+    // 7. ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ì¶œë ¥
     if (IsEmpty(&list)) {
-        printf("Âü\n");
+        printf("ì°¸\n");
     }
     else
     {
-        printf("°ÅÁş\n");
+        printf("ê±°ì§“\n");
     }
     
-    // 8. ¸®½ºÆ®ÀÇ 4¹øÂ° ¿ø¼Ò¸¦ Ãâ·Â
-    printf("¸®½ºÆ® 4¹øÂ° ¿ø¼Ò´Â %dÀÔ´Ï´Ù.\n", Retrieve(&list, 4));
+    // 8. ë¦¬ìŠ¤íŠ¸ì˜ 4ë²ˆì§¸ ì›ì†Œë¥¼ ì¶œë ¥
+    printf("ë¦¬ìŠ¤íŠ¸ 4ë²ˆì§¸ ì›ì†ŒëŠ” %dì…ë‹ˆë‹¤.\n", Retrieve(&list, 4));
 
-    // 9. ¿ø¼Ò °ª 100À» ¸®½ºÆ®ÀÇ 1¹øÂ° ¿ø¼Ò·Î »ğÀÔ
+    // 9. ì›ì†Œ ê°’ 100ì„ ë¦¬ìŠ¤íŠ¸ì˜ 1ë²ˆì§¸ ì›ì†Œë¡œ ì‚½ì…
     Insert(&list, 1, 100);
     
-    // 10. ¿ø¼Ò °ª 200À» ¸®½ºÆ®ÀÇ ¸¶Áö¸· ¿ø¼Ò·Î »ğÀÔ
+    // 10. ì›ì†Œ ê°’ 200ì„ ë¦¬ìŠ¤íŠ¸ì˜ ë§ˆì§€ë§‰ ì›ì†Œë¡œ ì‚½ì…
     Insert(&list, Length(&list)+1, 200);
     
-    // 11. ¸®½ºÆ®ÀÇ 4¹øÂ° ¿ø¼Ò¸¦ 444·Î º¯°æ
+    // 11. ë¦¬ìŠ¤íŠ¸ì˜ 4ë²ˆì§¸ ì›ì†Œë¥¼ 444ë¡œ ë³€ê²½
     Update(&list, 4, 444);
 
-    // 12. ¸®½ºÆ® ³»¿ëÀ» ¸ğµÎ Ãâ·Â
+    // 12. ë¦¬ìŠ¤íŠ¸ ë‚´ìš©ì„ ëª¨ë‘ ì¶œë ¥
     RetrieveAll(&list);
     printf("\n");
 
-    // 13. ¸®½ºÆ®¸¦ ÃÊ±âÈ­
+    // 13. ë¦¬ìŠ¤íŠ¸ë¥¼ ì´ˆê¸°í™”
     Init(&list);
     
-    // 14. ¸®½ºÆ®°¡ ºñ¾îÀÖ´ÂÁö ¿©ºÎ¸¦ Ãâ·Â
+    // 14. ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ì¶œë ¥
     if (IsEmpty(&list)) {
-        printf("Âü\n");
+        printf("ì°¸\n");
     }
     else
     {
-        printf("°ÅÁş\n");
+        printf("ê±°ì§“\n");
     }
-}*/
+}
